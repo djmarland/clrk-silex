@@ -1,0 +1,14 @@
+// An example object
+//
+// To demonstrate the folder structure, mostly
+
+.example {
+    color: red;
+}
+
+
+@include breakup-breakpoint('bpw') {
+    .example {
+        text-decoration: underline;
+    }
+}

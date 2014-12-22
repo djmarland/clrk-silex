@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{message}}</h1>
+
+    <p class="example">I should be red, to prove that the CSS is loaded
+        correctly.<br>When the viewport is >600px I should also be underlined to
+        prove that Breakup is working as expected.</p>
+
+    <script>require(['main']);</script>
+    <p>Check the JS console, there should be a logged message from main.js</p>
+{% endblock %}

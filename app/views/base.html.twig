@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Test Application{% endblock %}</title>
+
+        <!--[if (gt IE 8)|!(IE)]><!-->
+            <link rel="stylesheet" href="{{asset('css/global.css')}}" />
+        <!--<![endif]-->
+        <!--[if (lt IE 9)&(!IEMobile)]>
+            <link rel="stylesheet" href="{{asset('css/global-ie.css')}}" />
+        <![endif]-->
+    </head>
+    <body>
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>

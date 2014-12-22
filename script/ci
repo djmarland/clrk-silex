@@ -1,0 +1,38 @@
+#!/bin/sh
+
+set -e
+RESULT=0
+
+sclphp ()
+{
+    scl enable php54 "$1"
+}
+
+# For the moment we need a newer composer than what the platform provides
+if [ ! -f "composer.phar" ]; then
+    wget -O composer.phar https://getcomposer.org/composer.phar
+fi
+sclphp "php composer.phar install"
+npm install
+# Grunt-cli isn't installed globally so get a local copy
+npm install grunt-cli
+
+
+# Run PHPUnit
+sclphp "vendor/bin/phpunit" || RESULT=1
+
+# Run PHPCS
+sclphp "vendor/bin/phpcs . --ignore=build,vendor,node_modules --standard=PSR2 -p --report=checkstyle --report-file=build/reports/checkstyle.xml" || RESULT=1
+
+# Front-end asset build & test
+node_modules/.bin/grunt ci || RESULT=1
+
+
+# Only run cosmos-build if everything else was successful
+if [ "$RESULT" = "0" ]; then
+    mkdir -p STATICS && tar -C web/assets -czf STATICS/assets.tar.gz . --exclude-vcs
+
+    cosmos-build || RESULT=1
+fi
+
+exit $RESULT

@@ -1,0 +1,20 @@
+// 20em     = 320px
+// 25em     = 400px
+// 30em     = 480px
+// 37.5em   = 600px
+// 48.125em = 770px
+// 63em     = 1008px
+
+$breakup-breakpoints: (
+    'bp1'  '(max-width: 24.999em)',
+    'bp2'  '(min-width: 25em) and (max-width: 37.499em)',
+    'bp3'  '(min-width: 37.5em) and (max-width: 62.999em)',
+    'bp4'  '(min-width: 63em)',
+
+    'bpb1' '(min-width: 20em) and (max-width: 37.499em)',
+    'bpb2' '(min-width: 30em) and (max-width: 37.499em)',
+    'bpw'  '(min-width: 37.5em)',
+    'bpw1' '(min-width: 37.5em) and (max-width: 62.999em)',
+    'bpw2' '(min-width: 48.125em) and (max-width: 62.999em)',
+    'bpe'  '(min-width: 63em)'
+) !default;

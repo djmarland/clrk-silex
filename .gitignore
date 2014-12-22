@@ -1,0 +1,16 @@
+/node_modules
+/vendor
+/build
+/web/assets
+*.log
+.idea/
+.DS_Store
+web/.htaccess
+
+composer.phar
+
+RPMS
+SOURCES
+SPECS
+SRPMS
+STATICS
