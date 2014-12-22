@@ -6,7 +6,6 @@
 .idea/
 .DS_Store
 web/.htaccess
-.vagrant
 
 composer.phar
 
