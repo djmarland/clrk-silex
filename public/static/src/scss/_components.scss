@@ -5,11 +5,10 @@
  */
 
 // Variables come first, as they may define things used in our libraries
-@import 'generic/variables';
+@import 'generic/_variables';
 
 // Libraries
-@import '../../../node_modules/breakup-sass/stylesheets/breakup';
-@import 'vendor/normalize/normalize';
+@import 'vendor/normalize/_normalize';
 
 
 // Generics - common variables, mixins and helpers
@@ -19,7 +18,7 @@
 
 
 // Objects - Reusable abstractions
-@import 'objects/example';
+@import 'objects/_example';
 
 // Helpers
 

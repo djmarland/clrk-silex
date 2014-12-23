@@ -9,7 +9,7 @@ use Twig_SimpleFunction;
 class AssetHelper extends Twig_Extension
 {
     const HTTP_STATIC_PREFIX = '/';
-    const HTTPS_STATIC_PREFIX = '/';
+    const HTTPS_STATIC_PREFIX = '/static';
 
     protected $assetVersion;
     protected $componentName;
@@ -56,6 +56,6 @@ class AssetHelper extends Twig_Extension
             return "{$this->staticPrefix}/s/{$this->componentName}/{$this->assetVersion}/{$path}";
         }
 
-        return '/static/' . $path;
+        return '/static/output/' . $path;
     }
 }

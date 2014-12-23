@@ -1,17 +1,17 @@
 module.exports = function (grunt) {
     var sassFilesArray = [{
         expand: true,
-        cwd: 'app/assets/css',
+        cwd: 'public/static/src/scss',
         src: ['**/*.scss', '!**/_*.scss'],
         rename: function(destBase, destPath, options) {
-            return options.cwd + '/../../../web/assets/css/' + destPath.replace(/\.scss/, '.css');
+            return options.cwd + '/../../../../public/static/output/css/' + destPath.replace(/\.scss/, '.css');
         },
     }];
 
     // Project configuration.
     grunt.initConfig({
-        assetsPath: 'app/assets',
-        outputPath: 'web/assets',
+        assetsPath: 'public/static/src',
+        outputPath: 'public/static/output',
 
         // Store your Package file so you can reference its specific data whenever necessary
         pkg: grunt.file.readJSON('package.json'),
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
             }
         },
 
-        requirejs: {
+  /*      requirejs: {
             options: {
                 baseUrl: '<%=assetsPath%>/js',
                 dir: '<%=outputPath%>/js',
@@ -48,10 +48,10 @@ module.exports = function (grunt) {
             },
             dist: {}
         },
-
-        qunit: {
-            all: [ '<%=assetsPath%>/js-test/**/*.html' ]
-        },
+*/
+  //      qunit: {
+  //          all: [ '<%=assetsPath%>/js-test/**/*.html' ]
+  //      },
 
         sass: {
             options: {
@@ -72,6 +72,27 @@ module.exports = function (grunt) {
                  options: {
                     sourceMap: false
                 },
+            }
+        },
+
+        concat: {
+            options: {
+                // Replace all 'use strict' statements in the code with a single one at the top
+                banner: "'use strict';\n",
+                process: function(src, filepath) {
+                    return '// Source: ' + filepath + '\n' +
+                        src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+                },
+                stripBanners: true,
+                separator: ';'
+            },
+            dist: {
+                src: [
+                    '<%=assetsPath%>/js/vendor/**/*.js',
+                    '<%=assetsPath%>/js/app/**/*.js',
+                    '<%=assetsPath%>/js/bootstrap.js'
+                ],
+                dest: '<%=outputPath%>/js/bootstrap.js'
             }
         },
 
@@ -98,7 +119,7 @@ module.exports = function (grunt) {
                     '<%=assetsPath%>/js/**/*.js',
                     '<%=assetsPath%>/js-test/**/*.js'
                 ],
-                tasks: ['requirejs:dev', 'jshint'/*, 'qunit'*/]
+                tasks: [/*'requirejs:dev',*/ 'jshint'/*, 'qunit'*/]
             },
             sass: {
                 files: ['<%=assetsPath%>/css/**/*.scss'],
@@ -116,14 +137,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
+    //grunt.loadNpmTasks('grunt-contrib-requirejs');
+    //grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
 
     // Default Task
-    grunt.registerTask('default', ['sass:dev', 'requirejs:dev', 'jshint', 'copy:assets'/*, 'qunit'*/]);
+    grunt.registerTask('default', ['sass:dev', /*'requirejs:dev',*/ 'jshint', 'concat', 'copy:assets'/*, 'qunit'*/]);
 
     // CI Task
-    grunt.registerTask('ci', ['sass:dist', 'requirejs:dist', 'jshint', 'copy:assets'/*, 'qunit'*/]);
+    grunt.registerTask('ci', ['sass:dist', /*'requirejs:dist',*/ 'jshint','concat',  'copy:assets'/*, 'qunit'*/]);
 };

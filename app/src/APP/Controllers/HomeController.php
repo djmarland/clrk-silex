@@ -11,4 +11,9 @@ class HomeController
     {
         return $app['twig']->render('home/index.html.twig', array());
     }
+
+    public function styleguideAction(Request $request, Application $app)
+    {
+        return $app['twig']->render('home/styleguide.html.twig', array());
+    }
 }
