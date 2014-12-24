@@ -32,6 +32,9 @@ $app['controllers.home'] = $app->share(function () use ($app) {
 $app['controllers.hello'] = $app->share(function () use ($app) {
     return new APP\Controllers\HelloController();
 });
+$app['controllers.customers'] = $app->share(function () use ($app) {
+    return new APP\Controllers\CustomersController();
+});
 
 $app->get('/app', 'controllers.hello:indexAction')->bind('home');
 $app->get('/app/hello', 'controllers.hello:indexAction')->bind('hellos');
@@ -65,14 +68,16 @@ $app['controllers.hello.prefixed'] = $app->share(function () use ($app) {
 });
 
 // Create a new 'group' through the controllers_factory and bind routes as usual:
-$v2Routes = $app['controllers_factory'];
-$v2Routes->get('/hello', 'controllers.hello.prefixed:indexAction')->bind('hellos-v2');
-$v2Routes->get('/hello/{name}', 'controllers.hello.prefixed:showAction')->bind('hello-v2');
+//$v2Routes = $app['controllers_factory'];
+//$v2Routes->get('/hello', 'controllers.hello.prefixed:indexAction')->bind('hellos-v2');
+//$v2Routes->get('/hello/{name}', 'controllers.hello.prefixed:showAction')->bind('hello-v2');
 
 // and mount the v2 routes on their prefix:
-$app->mount('/app/v2/', $v2Routes);
+//$app->mount('/app/v2/', $v2Routes);
 
-
+$app->get('/customers/{id}', 'controllers.customers:showAction')->bind('customers_show');
+$app->get('/customers', 'controllers.customers:listAction')->bind('customers_list');
+$app->get('/styleguide', 'controllers.home:styleguideAction')->bind('styleguide');
 $app->get('/', 'controllers.home:indexAction')->bind('home');
 // the following routes are now mapped onto the controllers.hello.prefixed controller:
 //  /app/v2/hello

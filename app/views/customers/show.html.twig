@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customer{% endblock %}
+
+{% block body %}
+
+    <h1>Customer</h1>
+
+    <div>
+        <p class="field">
+            <label>
+                <span class="field__label">Name</span>
+                <input type="text" class="input-text input-text--large" value="{{ customer.name }}"/></p>
+        </label>
+        <p class="field">
+            <label>
+                <span class="field__label">Address</span>
+                <textarea class="input-text input-text--medium" rows="4">{{  customer.address }}</textarea>
+            </label>
+        </p>
+        <p class="field">
+            <label>
+                <span class="field__label">Postcode</span>
+                <input type="text" class="input-text input-text--medium" value="{{  customer.postcode }}"/>
+            </label>
+        </p>
+
+
+
+    </div>
+
+
+{% endblock %}

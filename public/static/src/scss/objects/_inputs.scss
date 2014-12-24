@@ -1,0 +1,30 @@
+// An example object
+//
+// To demonstrate the folder structure, mostly
+
+.field {
+    position: relative;
+}
+.field__label {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.input-text {
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #ccc;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    resize: none;
+}
+
+.input-text--large {
+    font-size: 3rem;
+}
+
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block body %}
+
+    <h1>Customers</h1>
+
+    {% if data.hasCustomers %}
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Postcode</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in data.customers %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.inlineAddress }}</td>
+                    <td>{{ customer.postcode }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        No Customers
+    {% endif %}
+
+
+{% endblock %}

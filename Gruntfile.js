@@ -122,7 +122,7 @@ module.exports = function (grunt) {
                 tasks: [/*'requirejs:dev',*/ 'jshint'/*, 'qunit'*/]
             },
             sass: {
-                files: ['<%=assetsPath%>/css/**/*.scss'],
+                files: ['<%=assetsPath%>/scss/**/*.scss'],
                 tasks: ['sass:dev']
             },
             otherAssets: {

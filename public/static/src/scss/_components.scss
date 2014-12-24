@@ -5,7 +5,7 @@
  */
 
 // Variables come first, as they may define things used in our libraries
-@import 'generic/_variables';
+@import 'base/_variables';
 
 // Libraries
 @import 'vendor/normalize/_normalize';
@@ -15,10 +15,13 @@
 
 
 // Base - common styles including typography
-
+@import 'base/_layout';
+@import 'base/_grid';
+@import 'base/_variables';
 
 // Objects - Reusable abstractions
-@import 'objects/_example';
+@import 'objects/_inputs';
+
 
 // Helpers
 
