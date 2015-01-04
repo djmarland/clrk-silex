@@ -6,7 +6,8 @@
         "opensoft/rollout": "~1.0",
         "doctrine/common": "~2.0",
         "monolog/monolog": "~1.0",
-        "solution10/config": "~1.0"
+        "solution10/config": "~1.0",
+        "doctrine/dbal": "2.2.*"
     },
 
     "require-dev": {

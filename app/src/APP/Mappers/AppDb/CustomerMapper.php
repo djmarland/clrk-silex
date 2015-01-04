@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Mappers;
+namespace APP\Mappers\AppDb;
 
 use APP\Models\Customer;
 use APP\Mappers\MapperInterface;

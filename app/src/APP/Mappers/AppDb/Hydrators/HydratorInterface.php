@@ -1,6 +1,6 @@
 <?php
 
-namespace APP\Mappers\Hydrators;
+namespace APP\Mappers\AppDb\Hydrators;
 
 use stdClass;
 
