@@ -32,12 +32,12 @@ $app = new Application();
 //
 // Run the bootstrap:
 //
-include __DIR__.'/../app/bootstrap.php';
+include __DIR__ . '/../app/bootstrap.php';
 
 //
 // Build the routes
 //
-require __DIR__.'/../app/config/Routes.php';
+require __DIR__ . '/../app/config/routes.php';
 
 //
 // Run the application:

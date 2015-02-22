@@ -11,7 +11,7 @@
  * @link     https://github.com/bbc-rmp/deploy-pipeline
  */
 
-namespace RMP\Hello\Tests;
+namespace APP\Hello\Tests;
 
 /**
  * Hello app functional test suite

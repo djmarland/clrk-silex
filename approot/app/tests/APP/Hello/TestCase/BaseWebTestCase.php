@@ -20,8 +20,8 @@ abstract class BaseWebTestCase extends SilexWebTestCase
 
         $app = new Application();
 
-        include __DIR__.'/../../../../bootstrap.php';
-        include __DIR__.'/../../../../config/Routes.php';
+        include __DIR__ . '/../../../../bootstrap.php';
+        include __DIR__ . '/../../../../config/routes.php';
 
         $app['exception_handler']->disable();
 

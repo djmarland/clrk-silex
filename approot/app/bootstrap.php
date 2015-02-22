@@ -13,10 +13,6 @@
 
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
-use Opensoft\Rollout\Rollout;
-use Opensoft\Rollout\Storage\ArrayStorage;
-use Doctrine\Common\Cache;
-use Doctrine\Common\Cache\ArrayCache;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Solution10\Config\Config;
@@ -34,11 +30,6 @@ if (isset($app_env) && in_array($app_env, array('local','unittests','int','test'
 // Build config:
 //
 $app['config'] = new Config(__DIR__.'/config', ($app['env'] != 'live')? $app['env'] : null);
-
-//
-// Build Feature Flags
-//
-$app['feature'] = new Rollout(new ArrayStorage());
 
 //
 // Register Controller Service Provider
