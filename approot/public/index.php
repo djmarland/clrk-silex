@@ -1,4 +1,6 @@
 <?php
+phpinfo();
+die('yo');
 /**
  * Application index
  *

@@ -13,7 +13,7 @@ Initial Conifg from https://github.com/scotch-io/scotch-box
 * Download and Install Vagrant
 * Install Vagrant HostsUpdater https://github.com/cogitatio/vagrant-hostsupdater
 * Clone this Repository
-* Run Vagrant Up
+* Run Vagrant Up (must run as administrator)
 * Access Your Project at http://app.dev/
 
 Database Name	(leave blank)
